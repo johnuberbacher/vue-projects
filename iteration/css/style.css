@@ -9,7 +9,7 @@ body {
 h1,h2,h3,h4,h5, p { margin: 15px 0; font-family: 'Arial', sans-serif;}
 div { margin: 30px auto; padding: 0; }
 div div { 
-    padding: 0 15px;
+    padding: 1px 15px;
     background: #fff;
     border-radius:6px;
     background-color: #fff;
