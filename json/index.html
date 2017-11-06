@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Vue Json Iteration</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Vue Todo List">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta name="author" content="John Uberbacher">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div class="header">
+			<h1>{{title}}</h1>
+		</div>
+		<ul>
+			<li v-for="item in items">
+				<h3 class="launch">{{item.name}}</h3>
+				<span>Username:&nbsp;&nbsp;{{item.username}}</span>
+				<span>Email:&nbsp;&nbsp;{{item.email}}</span>
+				<span>Phone:&nbsp;&nbsp;{{item.phone}}</span>
+				<span>Website:&nbsp;&nbsp;{{item.website}}</span>
+			</li>
+		</ul>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="js/script.js"></script>
+</body>
