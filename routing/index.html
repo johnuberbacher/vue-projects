@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>vue iteration - android flavors</title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <div id="sample">
+    <h2>vue iteration - android flavors</h2>
+    <div v-if = "private.types!=null" v-for="type in private.types">
+      <h4>Android {{type.version}}</h4>
+      <h2>{{type.name}}</h2>
+      <p>{{type.description}}</p>
+    </div>
+
+  </div>
+  <v-paginator :resource_url="resource_url" @update="updateResource"></v-paginator>
+<ul>
+  <li v-for="animal in animals">
+    {{ animal.name }}
+  </li>
+</ul>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdn.jsdelivr.net/vuejs-paginator/2.0.0/vuejs-paginator.min.js"></script>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
