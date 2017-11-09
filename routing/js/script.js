@@ -1,19 +1,23 @@
-var VuePaginator = require('VuePaginator');
- new Vue({
-  
-  el: '#sample',
-  data: {
-    animals: [],
-      // Here you define the url of your paginated API
-      resource_url: 'http://hootlex.github.io/vuejs-paginator/samples/animals1.json'
-    }
-  },
-  components: {
-    VPaginator: VuePaginator
-  },
-  methods: {
-    updateResource(data){
-      this.animals = data
-    }
-  }
-})
+const Home = { template: '<div>You are Home!</div>' }
+const About = { template: '<div>Learn About Us!</div>' }
+const Contact = { template: '<div>Contact Us!</div>' }
+
+new Vue({
+  el: '#app',
+  router: new VueRouter({
+    routes: [
+      { 
+        path: '/', 
+        component: Home 
+      },
+      { 
+        path: '/About', 
+        component: About 
+      },
+      { 
+        path: '/Contact',
+        component: Contact 
+      }
+    ]
+  })
+});
