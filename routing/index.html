@@ -1,28 +1,19 @@
 <html>
 <head>
-  <title>vue iteration - android flavors</title>
+  <title>Vue Routing</title>
   <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-  <div id="sample">
-    <h2>vue iteration - android flavors</h2>
-    <div v-if = "private.types!=null" v-for="type in private.types">
-      <h4>Android {{type.version}}</h4>
-      <h2>{{type.name}}</h2>
-      <p>{{type.description}}</p>
+  <div id="app">
+    <div class="navigation">
+      <router-link to="/">Home</router-link>
+      <router-link to="/about/">About</router-link>
+      <router-link to="/contact/">Contact</router-link>
     </div>
-
+     <router-view class="content"></router-view>
   </div>
-  <v-paginator :resource_url="resource_url" @update="updateResource"></v-paginator>
-<ul>
-  <li v-for="animal in animals">
-    {{ animal.name }}
-  </li>
-</ul>
-
   <script src="https://unpkg.com/vue"></script>
-  <script src="https://cdn.jsdelivr.net/vuejs-paginator/2.0.0/vuejs-paginator.min.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.1/vue-router.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
