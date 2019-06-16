@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<style>
+			@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+			html, body {
+				height: 100%;
+			}
+			body {
+			  font-family: 'Open Sans', sans-serif;
+			  background-color: #f1f1f1;
+			}
+			body #calculator {
+				background: #000;
+				border-radius: 0.66rem;
+				margin: 3rem auto;
+				width: 100%;
+				max-width: 400px;
+				overflow: hidden;
+				box-shadow: 0px 30px 50px rgba(0,0,0,0.33);
+			}
+			.operators {
+				background: #fff; 
+			}
+			.operators div {
+				cursor: pointer;
+				text-align: center;
+				height: 84px;
+				width: 100px;
+				background: #fff;
+				color: #000;
+				padding: 1.5rem 1rem; 
+				font-size: 1.5rem;
+				transition: all 0.2s ease;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.operators div:hover {
+				background: rgba(0, 0, 0, 0.05);
+			}
+			.operators div:active {
+				background: rgba(0, 0, 0, 0.1);
+			}
+			.keys {
+				display: flex;
+				align-items: center;
+				flex-direction: row;
+				justify-content: center;
+				width: 100%;
+			}
+			.keys .zero {
+				width: 138px !important;
+			}
+			.keys .clear {
+				color: #000;
+				background-color: #ffd900;
+			}
+			.number-pad {
+				width: 100%;
+				background: #3a3a3a;
+				background: linear-gradient(145deg, #4c4c4c, #010101);
+			}
+			.numbers div {
+			  cursor: pointer;
+			  text-align: center;
+			  width: 100%;
+			  color: #fff;
+			  height: 84px;
+			  width: 100px;
+			  padding: 1.5rem 1rem; 
+			  font-size: 1.5rem;
+			  transition: all 0.2s ease;
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			}
+			.numbers div:hover {
+				background: rgba(255, 255, 255, 0.1);
+			}
+			.numbers div:active {
+				background: rgba(255, 255, 255, 0.33);
+			}
+			.equate {
+				background: #000;
+				padding: 1.5rem 2rem;
+				font-size: 1.75rem;
+				border: 0;
+				outline: 0;
+				color: #fff;
+				width: 100%;
+				text-align: right;
+				border-bottom: 1px solid #575757;
+			}
+			.equate::placeholder {
+				color: #a2a2a2;
+			}
+		</style>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app" class="container h-100">
+			<div class="row h-100">
+				<div class="col-12 h-100 d-flex align-items-center justify-content-center">
+					<div id="calculator">
+						<input class="equate" placeholder="0" type="text" v-model="total" readonly>
+						<div class="keys">
+							<div class="number-pad">
+								<div class="numbers d-flex align-items-stretch justify-content-between flex-row">
+									<div v-on:click="key(7)">7</div>
+									<div v-on:click="key(8)">8</div>
+									<div v-on:click="key(9)">9</div>
+								</div>
+								<div class="numbers d-flex align-items-stretch justify-content-between flex-row">
+									<div v-on:click="key(4)">4</div>
+									<div v-on:click="key(5)">5</div>
+									<div v-on:click="key(6)">6</div>
+								</div>
+								<div class="numbers d-flex align-items-stretch justify-content-between flex-row">
+									<div v-on:click="key(1)">1</div>
+									<div v-on:click="key(2)">2</div>
+									<div v-on:click="key(3)">3</div>
+								</div>
+								<div class="numbers d-flex align-items-stretch justify-content-between flex-row">
+									<div v-on:click="clear()" class="clear">c</div>
+									<div v-on:click="key(0)">0</div>
+									<div v-on:click="equal()">=</div>
+								</div>
+							</div>
+							<div class="operators">
+								<div v-on:click="key('+')">+</div>
+								<div v-on:click="key('-')">-</div>
+								<div v-on:click="key('*')">*</div>
+								<div v-on:click="key('/')">/</div>
+							</div>
+						</div>
+					</div>  
+				</div>  
+			</div>  
+		</div>  
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					total: ''
+				},
+				methods: {
+					key: function(num) {
+						return this.total += num.toString();
+					},
+					clear: function() {
+						return this.total = '';
+					},
+					equal: function() {
+						let equal = this.total;
+						return this.total = eval(equal);
+					}         
+				}
+			});
+		</script>
+	</body>
+</html>
